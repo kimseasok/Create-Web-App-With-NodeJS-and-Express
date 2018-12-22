@@ -1,0 +1,24 @@
+{
+  "name": "create-with-express-and-nodejs",
+  "version": "1.0.0",
+  "description": "Learn how to create web app with nodejs and express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimseasok/Create-Web-App-With-NodeJS-and-Express.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "javascript"
+  ],
+  "author": "Kimsea Sok",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kimseasok/Create-Web-App-With-NodeJS-and-Express/issues"
+  },
+  "homepage": "https://github.com/kimseasok/Create-Web-App-With-NodeJS-and-Express#readme"
+}
