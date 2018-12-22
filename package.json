@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/kimseasok/Create-Web-App-With-NodeJS-and-Express/issues"
   },
-  "homepage": "https://github.com/kimseasok/Create-Web-App-With-NodeJS-and-Express#readme"
+  "homepage": "https://github.com/kimseasok/Create-Web-App-With-NodeJS-and-Express#readme",
+  "dependencies": {
+    "express": "4.16.4"
+  }
 }
