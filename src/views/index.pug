@@ -1,9 +1,13 @@
 html
     head
         title My App
-    body
-        h1 My App heading
+    body(class=["myClass"])
+        h1(id="heading") Welcome to Node
 
         p
 
             h3 sub header
+
+        ul
+            each val in list
+                li= val
