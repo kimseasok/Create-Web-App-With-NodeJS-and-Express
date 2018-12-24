@@ -20,7 +20,12 @@ app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist'))
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
-const booksRouter = require('./src/routes/bookRoutes');
+const nav = [
+  { link: '/books', title: 'Books' },
+  { link: '/authors', title: 'Authors' }
+];
+
+const booksRouter = require('./src/routes/bookRoutes')(nav);
 
 app.use('/books', booksRouter);
 
