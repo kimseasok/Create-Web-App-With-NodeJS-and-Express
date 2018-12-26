@@ -8,26 +8,6 @@ const sql = require('mssql');
 
 
 function router(nav) {
-  // const books = [
-  //   {
-  //     title: 'War and Peace',
-  //     genre: 'Historical Fiction',
-  //     author: 'Lev Nikolayevich Tolstory',
-  //     read: false
-  //   },
-  //   {
-  //     title: 'Les Miserable',
-  //     genre: 'Science Fiction',
-  //     author: 'H. G. Wells',
-  //     read: false
-  //   },
-  //   {
-  //     title: 'A Jouney in the Center of the Earth',
-  //     genre: 'Science Fiction',
-  //     author: 'Jules Verne',
-  //     read: false
-  //   }
-  // ];
   booksRouter.route('/')
     .get((req, res) => {
       (async function queryBooks() {
