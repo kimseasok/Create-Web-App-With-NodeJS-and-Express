@@ -46,11 +46,11 @@ function router(nav) {
       const { id } = req.params;
       (async function querybook() {
         const request = new sql.Request();
-        const result = await request.query(`select * from books where book_id=${id}`);
+        const { recordset } = await request.input('id', sql.Int, id).query(`select * from books where book_id=${id}`);
         res.render('book', {
           nav,
           title: 'Single Book',
-          book: result.recordset[0]
+          book: recordset[0]
         });
       }());
     });
