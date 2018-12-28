@@ -2,7 +2,7 @@ const { MongoClient, ObjectID } = require('mongodb');
 
 const debug = require('debug')('app:bookController');
 
-function bookController(nav) {
+function bookController(bookService, nav) {
   function middleWare(req, res, next) {
     if (req.user) {
       next();
@@ -56,6 +56,9 @@ function bookController(nav) {
         const col = await db.collection('books');
 
         const book = await col.findOne({ _id: new ObjectID(id) });
+
+        book.details = await bookService.getBookById(book.bookId);
+
         res.render('book', {
           nav,
           title: 'Single Book',
