@@ -9,13 +9,28 @@ const authRouter = express.Router();
 function router() {
   authRouter.route('/signUp')
     .post((req, res) => {
-      debug(req.body);
+      const { username, password } = req.body;
 
-      // Create user
+      const url = 'mongodb://localhost:27017';
+      const dbName = 'node_test';
 
-      req.login(req.body, () => {
-        res.redirect('/auth/profile');
-      });
+      (async function addUser() {
+        let client;
+        try {
+          client = await MongoClient.connect(url);
+          debug('connect to the server');
+          const db = client.db(dbName);
+          const col = db.collection('users');
+          const user = { username, password };
+          const result = await col.insertOne(user);
+          debug(result);
+          req.login(result.ops[0], () => {
+            res.redirect('/auth/profile');
+          });
+        } catch (err) {
+          debug(err.stack);
+        }
+      }());
     });
   authRouter.route('/profile')
     .get((req, res) => {
