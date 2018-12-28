@@ -5,6 +5,9 @@ const morgan = require('morgan');
 const path = require('path');
 // const sql = require('mssql');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 const app = express();
 const port = process.env.PORT || 3030 || 3000;
@@ -25,6 +28,11 @@ const port = process.env.PORT || 3030 || 3000;
 app.use(morgan('tiny'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(session({ secret: 'library' }));
+
+require('./src/config/passport.js')(app);
+
 app.use(express.static(path.join(__dirname, '/public/')));
 
 // Serve static file from node modules
